@@ -32,3 +32,21 @@ function goToTournament(game) {
         window.location.href = "chess-tournament.html";
     }
 }
+document.addEventListener("DOMContentLoaded", async () => {
+    const connectButton = document.getElementById("connectWallet");
+    const walletAddress = document.getElementById("walletAddress");
+
+    if (window.solana && window.solana.isPhantom) {
+        connectButton.addEventListener("click", async () => {
+            try {
+                const response = await window.solana.connect();
+                walletAddress.textContent = `Wallet: ${response.publicKey.toString()}`;
+            } catch (err) {
+                console.error("Wallet Connection Failed:", err);
+            }
+        });
+    } else {
+        connectButton.textContent = "Phantom Wallet nicht gefunden";
+        connectButton.disabled = true;
+    }
+});
