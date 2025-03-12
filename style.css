@@ -89,7 +89,7 @@ nav ul li a:hover {
     position: absolute;
     top: 50%;
     left: -300px; /* Start außerhalb */
-    animation: moveIcons 6s linear infinite;
+    animation: moveIcons 15s linear infinite;
 }
 
 /* Animation für die gesamte Icon-Gruppe */
